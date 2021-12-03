@@ -86,7 +86,6 @@ public:
 double vidurkis(vector<double>);
 double mediana(vector<double>);
 bool compare_alphabet(const Studentas&, const Studentas&);
-//bool is_alphabetic(string);
 void print_student(vector<Studentas>);
 bool compare_mark(const Studentas&, const Studentas&);
 bool passed(const Studentas&);
