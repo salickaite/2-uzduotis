@@ -13,7 +13,6 @@
 #include "testavimas.h"
 #include "rand_int.h"
 
-
 using std::cout;
 using std::cin;
 using std::string;
@@ -23,8 +22,6 @@ using std::accumulate;
 using std::ifstream;
 using std::getline;
 using std::stringstream;
-
-
 
 int main()
 {
