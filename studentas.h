@@ -17,7 +17,6 @@ private:
     double galutinis;
 public:
     Studentas() {};
-    //Studentas(std::istream& is);
     const string getVardas() const { return vardas; }
     const string getPavarde() const { return pavarde; }
     double getEgzaminas() const { return egzaminas; }
