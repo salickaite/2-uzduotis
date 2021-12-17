@@ -184,7 +184,7 @@ void Studentas::padalijimas3_(vector<Studentas>& vec)
     vector<Studentas>::iterator it = std::partition_point(vec.begin(), vec.end(), pred_);
     for (it; it != vec.end(); it++)
     {
-        nabagai_vec_.push_back(*it);
+        vargsiukai_v_.push_back(*it);
     }
     vec.erase(std::partition_point(vec.begin(), vec.end(), pred_), vec.end());
 }
