@@ -38,7 +38,7 @@ list<studentas> kietiakai_l;
 
 //KLASE:
 vector<Studentas> grupe_vec_;
-vector <Studentas> nabagai_vec_;
+vector <Studentas> vargsiukai_v_;
 
 
 void pild(studentas& kint)
