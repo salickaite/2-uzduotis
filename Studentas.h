@@ -28,19 +28,18 @@ public:
 };
 
 
-
 class Studentas : public Zmogus
 {
 private:
-	int egzaminas_;
-	float galutinisVid_;
+	int egz_;
+	float gal_vid_;
 	vector<float> nd_;
 
 public:
 	Studentas()
 	{
-		egzaminas_ = 0;
-		galutinisVid_ = 0;
+		egz_ = 0;
+		gal_vid_ = 0;
 		nd_.clear();
 	}
 
@@ -50,16 +49,17 @@ public:
 
 	inline string vardas() { return vardas_; }
 	inline string pavarde() { return pavarde_; }
-	inline int egzaminas() const { return egzaminas_; }
+	inline int egz() const { return egz_; }
 	inline vector<float> nd() const { return nd_; }
-	inline float galutinisVid() const { return galutinisVid_; }
+	inline float gal_vid() const { return gal_vid_; }
 
 	void setVardas(string);
 	void setPavarde(string);
-	void setEgzaminas(int);
+	void setEgz(int);
 	void setND(vector<float>);
-	void setGalutinisVid(float);
-	~Studentas() {
+	void setGal_vid(float);
+	~Studentas() 
+	{
 		nd_.clear();
 	}
 
