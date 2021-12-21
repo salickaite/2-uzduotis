@@ -41,7 +41,8 @@ vector<Studentas> grupe_vec_;
 vector <Studentas> vargsiukai_v_;
 
 
-void pild(studentas& kint) {
+void pild(studentas& kint)
+{
     float sum = 0, vid = 0, n, med;
     int count = 0;
 
@@ -51,8 +52,7 @@ void pild(studentas& kint) {
     cout << "Jei norite, kad studentu pazymiai butu generuojami AUTOMATISKAI spauskite \"A\".\n Jei norite pazymius suvesti PATYS spauskite \"P\". ";
     char ats;
     cin >> ats;
-    while (cin.fail() || (ats != 'a' && ats != 'A' && ats != 'p' && ats != 'P'))
-    {
+    while (cin.fail() || (ats != 'a' && ats != 'A' && ats != 'p' && ats != 'P')) {
         cout << "Netinkamai ivesta komanda. Pasirinkite A (automatiskai) arba P (patys). " << endl;
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -76,7 +76,7 @@ void pild(studentas& kint) {
         cout << "Jei norite, kad galutinis pazymys butu pateiktas su VIDURKIU iveskite \"V\".\n Jei su MEDIANA iveskite \"M\".  ";
         cin >> kint.skaiciavimas;
         while (cin.fail() || (kint.skaiciavimas != 'v' && kint.skaiciavimas != 'V' && kint.skaiciavimas != 'm' && kint.skaiciavimas != 'M')) {
-            cout << "Neteising ivestis. Iveskite 'M' (mediana) arba 'V' (vidurkiu). " << endl;
+            cout << "Klaida! Iveskite raides 'v' arba 'm'" << endl;
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cin >> kint.skaiciavimas;
@@ -120,8 +120,7 @@ void pild(studentas& kint) {
 
         cout << "Jei norite, kad galutinis pazymys butu pateiktas su VIDURKIU iveskite \"V\".\n Jei su MEDIANA iveskite \"M\".  ";
         cin >> kint.skaiciavimas;
-        while (cin.fail() || (kint.skaiciavimas != 'v' && kint.skaiciavimas != 'V' && kint.skaiciavimas != 'm' && kint.skaiciavimas != 'M'))
-        {
+        while (cin.fail() || (kint.skaiciavimas != 'v' && kint.skaiciavimas != 'm')) {
             cout << "Netinkamai ivesta komanda. Pasirinkite V (vidurkis) arba M (mediana) " << endl;
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -135,10 +134,8 @@ void pild(studentas& kint) {
         kint.gal_med = med * 0.4 + 0.6 * kint.egz;
     }
 }
-
-void printas(studentas& kin) {
-
-
+void printas(studentas& kin)
+{
     if (kin.skaiciavimas == 'v' || kin.skaiciavimas == 'V')
     {
         cout << setw(20) << left << kin.vardas << setw(20) << left << kin.pavarde << setw(20) << left << setprecision(3) << kin.gal_vid << endl;
@@ -168,8 +165,7 @@ void print_student(studentas& stud)
     cout << setw(20) << left << stud.vardas << setw(20) << left << stud.pavarde << setw(20) << left << setprecision(3) << stud.gal_vid << setw(20) << left << setprecision(3) << stud.gal_vid << endl;
 }
 
-void tikrinimas(int& a)
-{
+void tikrinimas(int& a) {
     cin >> a;
     do {
         try {
@@ -189,7 +185,6 @@ void tikrinimas(int& a)
 bool func(studentas st)
 {
     return st.gal_vid < 5;
-
 }
 
 bool pred(studentas st)
@@ -215,12 +210,12 @@ void create_file(string name, float sk) {
         failas << "Vardas" << i << "    Pavarde" << i << "        " << setw(10) << left << nd1 << setw(10) << left << nd2 << setw(10) << left << nd3 << setw(10) << left << nd4 << setw(10) << left << nd5 << setw(10) << left << egz << endl;
     }
     failas.close();
+
 }
 
 //VEKTORIAI:
+void nuskaitymas_v(string read) {
 
-void nuskaitymas_v(string read)
-{
     string eil;
     vector<string> eilutes;
 
@@ -242,108 +237,8 @@ void nuskaitymas_v(string read)
     eilutes.pop_back();
 
 
-    for (auto eil : eilutes) {
-        stringstream s(eil);
-        studentas tempas;
-        float sum, vid;
-        s >> tempas.vardas >> tempas.pavarde;
-        int k;
-        while (s >> k) {
-            tempas.nd.push_back(k);
-
-        }
-
-        tempas.egz = tempas.nd.back();
-        tempas.nd.pop_back();
-
-
-        sum = std::accumulate(tempas.nd.begin(), tempas.nd.end(), 0);
-
-
-        vid = sum / tempas.nd.size();
-
-        float med = mediana(tempas.nd);
-
-        tempas.gal_vid = 0.4 * vid + 0.6 * tempas.egz;
-        tempas.gal_med = med * 0.4 + 0.6 * tempas.egz;
-        grupe_vec.push_back(tempas);
-    }
-}
-
-void padalijimas1(vector<studentas>& vec)
-{
-    for (auto p : vec) {
-        if (p.gal_vid < 5) {
-            vargsiukai_v.push_back(p);
-        }
-        else {
-            kietiakai_v.push_back(p);
-        }
-    }
-}
-
-void padalijimas2(vector<studentas>& vec)
-{
-    for (studentas p : vec) {
-        if (p.gal_vid < 5) {
-            vargsiukai_v.push_back(p);
-
-        }
-    }
-    vec.erase(remove_if(vec.begin(), vec.end(), func), vec.end());
-}
-
-void padalijimas3(vector<studentas>& vec)
-{
-    std::partition(vec.begin(), vec.end(), pred);
-
-    vector<studentas>::iterator it = std::partition_point(vec.begin(), vec.end(), pred);
-    for (it; it != vec.end(); it++) {
-        vargsiukai_v.push_back(*it);
-    }
-
-    vec.erase(std::partition_point(vec.begin(), vec.end(), pred), vec.end());
-}
-
-void isvedimas(vector<studentas>& vec, string pav)
-{
-    std::ofstream failas;
-    failas.open(pav);
-    failas << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis balas" << "\n";
-    for (auto p : vec) {
-
-        failas << setw(20) << left << p.vardas << setw(20) << left << p.pavarde << setw(20) << left << p.gal_vid << "\n";
-    }
-
-    failas.close();
-}
-
-
-//LISTAI:
-
-void nuskaitymas_l(string read)
-{
-    string eil;
-    vector<string> eilutes;
-
-    ifstream failas(read);
-    if (!failas) {
-        throw exception();
-    }
-    while (failas) {
-        if (!failas.eof()) {
-            std::getline(failas, eil);
-            eilutes.push_back(eil);
-
-        }
-        else break;
-
-    }
-    failas.close();
-
-    eilutes.pop_back();
-
-    for (auto eil : eilutes) {
+    for (auto eil : eilutes)
+    {
         stringstream s(eil);
         studentas tempas;
         float sum, vid;
@@ -363,6 +258,114 @@ void nuskaitymas_l(string read)
 
         float med = mediana(tempas.nd);
 
+        tempas.gal_vid = 0.4 * vid + 0.6 * tempas.egz;
+        tempas.gal_med = med * 0.4 + 0.6 * tempas.egz;
+        grupe_vec.push_back(tempas);
+    }
+}
+
+void padalijimas1(vector<studentas>& vec)
+{
+    for (auto p : vec)
+    {
+        if (p.gal_vid < 5)
+        {
+            vargsiukai_v.push_back(p);
+        }
+        else
+        {
+            kietiakai_v.push_back(p);
+        }
+    }
+}
+
+void padalijimas2(vector<studentas>& vec)
+{
+    for (studentas p : vec) {
+        if (p.gal_vid < 5) {
+            vargsiukai_v.push_back(p);
+        }
+    }
+    vec.erase(remove_if(vec.begin(), vec.end(), func), vec.end());
+}
+
+void padalijimas3(vector<studentas>& vec)
+{
+    std::partition(vec.begin(), vec.end(), pred);
+
+    vector<studentas>::iterator it = std::partition_point(vec.begin(), vec.end(), pred);
+    for (it; it != vec.end(); it++)
+    {
+        vargsiukai_v.push_back(*it);
+    }
+
+    vec.erase(std::partition_point(vec.begin(), vec.end(), pred), vec.end());
+}
+
+void isvedimas(vector<studentas>& vec, string pav)
+{
+    std::ofstream failas;
+    failas.open(pav);
+    failas << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis balas" << "\n";
+    for (auto p : vec)
+    {
+
+        failas << setw(20) << left << p.vardas << setw(20) << left << p.pavarde << setw(20) << left << p.gal_vid << "\n";
+    }
+
+    failas.close();
+}
+
+
+//LISTAI:
+void nuskaitymas_l(string read)
+{
+
+    string eil;
+    vector<string> eilutes;
+
+    ifstream failas(read);
+    if (!failas)
+    {
+        throw exception();
+    }
+    while (failas)
+    {
+        if (!failas.eof()) {
+            std::getline(failas, eil);
+            eilutes.push_back(eil);
+
+        }
+        else break;
+
+    }
+    failas.close();
+
+    eilutes.pop_back();
+
+
+    for (auto eil : eilutes)
+    {
+        stringstream s(eil);
+        studentas tempas;
+        float sum, vid;
+        s >> tempas.vardas >> tempas.pavarde;
+        int k;
+        while (s >> k)
+        {
+            tempas.nd.push_back(k);
+
+        }
+
+        tempas.egz = tempas.nd.back();
+        tempas.nd.pop_back();
+
+        sum = std::accumulate(tempas.nd.begin(), tempas.nd.end(), 0);
+
+        vid = sum / tempas.nd.size();
+
+        float med = mediana(tempas.nd);
+
         tempas.gal_vid = vid * 0.4 + 0.6 * tempas.egz;
         tempas.gal_med = med * 0.4 + 0.6 * tempas.egz;
         grupe_lst.push_back(tempas);
@@ -371,7 +374,8 @@ void nuskaitymas_l(string read)
 
 void padalijimas1(list<studentas>& lst)
 {
-    for (auto p : lst) {
+    for (auto p : lst)
+    {
         if (p.gal_vid < 5)
         {
             vargsiukai_l.push_back(p);
@@ -385,9 +389,12 @@ void padalijimas1(list<studentas>& lst)
 
 void padalijimas2(list<studentas>& lst)
 {
-    for (studentas p : lst) {
-        if (p.gal_vid < 5) {
+    for (studentas p : lst)
+    {
+        if (p.gal_vid < 5)
+        {
             vargsiukai_v.push_back(p);
+
         }
     }
     lst.erase(remove_if(lst.begin(), lst.end(), func), lst.end());
@@ -398,21 +405,24 @@ void padalijimas3(list<studentas>& lst)
     std::partition(lst.begin(), lst.end(), pred);
 
     list<studentas>::iterator it = std::partition_point(lst.begin(), lst.end(), pred);
-    for (it; it != lst.end(); it++) {
+    for (it; it != lst.end(); it++)
+    {
         vargsiukai_v.push_back(*it);
     }
+
     lst.erase(std::partition_point(lst.begin(), lst.end(), pred), lst.end());
 }
 
-void isvedimas(list<studentas>& lst, string pav)
-{
+
+void isvedimas(list<studentas>& lst, string pav) {
     std::ofstream failas;
     failas.open(pav);
     failas << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis balas" << "\n";
-    for (auto p : lst)
-    {
+    for (auto p : lst) {
+
         failas << setw(20) << left << p.vardas << setw(20) << left << p.pavarde << setw(20) << left << p.gal_vid << "\n";
     }
+
     failas.close();
 }
 
@@ -427,10 +437,12 @@ void testas(string name)
         nuskaitymas_v(name);
     }
 
-    catch (exception& e) {
+    catch (exception& e)
+    {
         cout << "Failas neegzistuoja! Patikrinkite failo varda ir meginkite is naujo..." << endl;
         exit(EXIT_FAILURE);
     }
+
     float t1 = t.elapsed();
     cout << "Nuskaitymas uztruko: " << t1 << " s" << endl;
     t.reset();
@@ -448,12 +460,13 @@ void testas(string name)
     t.reset();
     try
     {
-        Studentas::nuskaitymas_vec_(name);
+        Studentas::nuskaitymas_v_(name);
     }
+
 
     catch (exception& e)
     {
-        cout << "Failas neegzistuoja! Patikrinkite failo varda ir meginkite is naujo..." << endl;
+        cout << "Failas neegzistuoja! Patikrinkite failo varda ir bandykite dar karta. " << endl;
         exit(EXIT_FAILURE);
     }
 
@@ -472,44 +485,43 @@ void testas(string name)
     cout << "Viso testo laiko santykis (t_struct/t_class): " << tv / tv_ << endl;
 }
 
-void uzpildymas() {
+void uzpildymas()
+{
     char a;
     string fileName;
-
     cout << "Jei norite duomenis nuskaityti is failo iveskite T (taip) arbe N (ne): ";
     cin >> a;
-    if (a == 't' || a == 'T')
-    {
+    if (a == 't' || a == 'T') {
         cout << "Irasykite failo pavadinima: ";
         cin >> fileName;
         try {
-            Studentas::nuskaitymas_vec_(fileName);
+            Studentas::nuskaitymas_v_(fileName);
         }
 
-        catch (std::exception& e)
-        {
+
+        catch (std::exception& e) {
             cout << "Failas neegzistuoja! Patikrinkite failo varda ir bandykite dar karta. " << endl;
             exit(EXIT_FAILURE);
         }
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
         for (auto p : grupe_vec_) {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
 
     }
-    else {
-        cout << "Iveskite studentu skaiciu: " << endl;
+    else
+    {
+        cout << "Irasykite studentu skaiciu:  " << endl;
         int n;
         tikrinimas(n);
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             Studentas temp;
             temp.pild();
             grupe_vec_.push_back(temp);
         }
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
         for (auto p : grupe_vec_) {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
     }
 
