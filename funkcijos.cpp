@@ -515,7 +515,7 @@ void uzpildymas()
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
         for (auto p : grupe_vec_) 
         {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
     }
 
