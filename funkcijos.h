@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Studentas.h"
 
 #include <iostream>
@@ -16,8 +16,7 @@ using std::string;
 using std::vector;
 using std::list;
 
-/// Struktūra studentas.
-
+/// Struktūra 'studentas'
 struct studentas
 {
     string vardas, pavarde;
@@ -26,42 +25,44 @@ struct studentas
     float gal_vid;
     float gal_med;
     char skaiciavimas;
-
 };
 
 extern vector<studentas> grupe_vec;
 extern vector<studentas> vargsiukai_v;
-extern vector<studentas> kietiakiai_v;
+extern vector<studentas> kietiakai_v;
 
 extern vector<Studentas> grupe_vec_;
 extern vector <Studentas> vargsiukai_v_;
 
 extern list<studentas> grupe_lst;
 extern list<studentas> vargsiukai_l;
-extern list<studentas> protingi_l;
+extern list<studentas> kietiakai_l;
 
 void pild(studentas& kint);
 void printas(studentas& kin);
+
+/// medianos skaiciavimo funkcija
 float mediana(vector<float> vec);
 bool compare_final(studentas& a, studentas& b);
 void print_student(studentas& stud);
 
-/// Tikrinimo funkcija, tikrinanti, ar vartotojas įvedė tinkamą įvestį.
+/// tikrinimo funkcija
+///
+/// patikrina ar teisinga ivestis
 void tikrinimas(int& a);
 
-/// Failo generavimo funkcija.
+/// failo generavimo funkcija
 void create_file(string name, float sk);
 
 bool func(studentas st);
 bool pred(studentas st);
 
 
-/// Testavimo funkcija.
+/// testavimo funkcija
 void testas(string name);
 
-/// Užpildymo funkcija.
+/// uzpildymo funkcija
 void uzpildymas();
-
 
 //VEKTORIAI
 void nuskaitymas_v(string read);
@@ -77,4 +78,3 @@ void padalijimas1(list<studentas>& lst);
 void padalijimas2(list<studentas>& lst);
 void padalijimas3(list<studentas>& lst);
 void isvedimas(list<studentas>& lst, string pav);
-
