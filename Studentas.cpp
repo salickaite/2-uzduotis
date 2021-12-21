@@ -6,19 +6,22 @@ using std::endl;
 using std::string;
 using std::vector;
 
-Studentas::Studentas(string v, string p, float g) {
+Studentas::Studentas(string v, string p, float g) 
+{
     vardas_ = v;
     pavarde_ = p;
     gal_vid_ = g;
 }
-Studentas::Studentas(const Studentas& st) {
+Studentas::Studentas(const Studentas& st) 
+{
     vardas_ = st.vardas_;
     pavarde_ = st.pavarde_;
     egz_ = st.egz_;
     gal_vid_ = st.gal_vid_;
     nd_ = st.nd_;
 }
-Studentas& Studentas::operator=(const Studentas& st) {
+Studentas& Studentas::operator=(const Studentas& st) 
+{
     if (&st == this) return *this;
     vardas_ = st.vardas_;
     pavarde_ = st.pavarde_;
