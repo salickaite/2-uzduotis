@@ -30,8 +30,9 @@ struct studentas
 extern vector<studentas> grupe_vec;
 extern vector<studentas> vargsiukai_v;
 extern vector<studentas> kietiakai_v;
+
 extern vector<Studentas> grupe_vec_;
-extern vector <Studentas> nabagai_vec_;
+extern vector <Studentas> vargsiukai_v_;
 
 extern list<studentas> grupe_lst;
 extern list<studentas> vargsiukai_l;
