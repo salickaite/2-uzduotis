@@ -30,6 +30,7 @@ struct studentas
 extern vector<studentas> grupe_vec;
 extern vector<studentas> vargsiukai_v;
 extern vector<studentas> kietiakai_v;
+
 extern vector<Studentas> grupe_vec_;
 extern vector <Studentas> vargsiukai_v_;
 
@@ -40,7 +41,7 @@ extern list<studentas> kietiakai_l;
 void pild(studentas& kint);
 void printas(studentas& kin);
 float mediana(vector<float> vec);
-bool compare_final(studentas a, studentas b);
+bool compare_final(studentas& a, studentas& b);
 void print_student(studentas& stud);
 void tikrinimas(int& a);
 void create_file(string name, float sk);
