@@ -62,7 +62,7 @@ public:
 	{
 		nd_.clear();
 	}
-
+	
 	void pild();
 	float vidurkis();
 	float galBalas(const char);
