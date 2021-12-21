@@ -66,7 +66,7 @@ public:
 	void pild();
 	float vidurkis();
 	float galBalas(const char);
-	static void nuskaitymas_vec_(string read);
+	static void nuskaitymas_v_(string read);
 	static void padalijimas3_(vector<Studentas>& vec);
 	static bool pred_(const Studentas& st);
 	static void isvedimas_(vector<Studentas>& vec, string pav);
