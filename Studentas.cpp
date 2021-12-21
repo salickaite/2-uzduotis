@@ -9,30 +9,30 @@ using std::vector;
 Studentas::Studentas(string v, string p, float g) {
     vardas_ = v;
     pavarde_ = p;
-    galutinisVid_ = g;
+    gal_vid_ = g;
 }
 Studentas::Studentas(const Studentas& st) {
     vardas_ = st.vardas_;
     pavarde_ = st.pavarde_;
-    egzaminas_ = st.egzaminas_;
-    galutinisVid_ = st.galutinisVid_;
+    egz_ = st.egz_;
+    gal_vid_ = st.gal_vid_;
     nd_ = st.nd_;
 }
 Studentas& Studentas::operator=(const Studentas& st) {
     if (&st == this) return *this;
     vardas_ = st.vardas_;
     pavarde_ = st.pavarde_;
-    egzaminas_ = st.egzaminas_;
-    galutinisVid_ = st.galutinisVid_;
+    egz_ = st.egz_;
+    gal_vid_ = st.gal_vid_;
     nd_ = st.nd_;
     return *this;
 }
 
 void Studentas::setVardas(string a) { vardas_ = a; }
 void Studentas::setPavarde(string b) { pavarde_ = b; }
-void Studentas::setEgzaminas(int n) { egzaminas_ = n; }
+void Studentas::setEgz(int n) { egz_ = n; }
 void Studentas::setND(vector<float> nd) { nd_ = nd; }
-void Studentas::setGalutinisVid(float g) { galutinisVid_ = g; }
+void Studentas::setGal_vid(float g) { gal_vid_ = g; }
 
 float Studentas::vidurkis()
 {
@@ -45,13 +45,13 @@ float Studentas::galBalas(const char s)
 {
     if (s == 'v' || s == 'V')
     {
-        galutinisVid_ = 0.6 * egzaminas_ + 0.4 * vidurkis();
-        return galutinisVid_;
+        gal_vid_ = 0.6 * egz_ + 0.4 * vidurkis();
+        return gal_vid_;
     }
     else if (s == 'm' || s == 'M')
     {
-        galutinisVid_ = 0.6 * egzaminas_ + 0.4 * mediana(nd_);
-        return galutinisVid_;
+        gal_vid_ = 0.6 * egz_ + 0.4 * mediana(nd_);
+        return gal_vid_;
     }
 }
 
@@ -86,7 +86,7 @@ void Studentas::pild()
             int x = dist(mt);
             nd_.push_back(x);
         }
-        egzaminas_ = dist(mt);
+        egz_ = dist(mt);
         galBalas('v');
 
     }
@@ -116,7 +116,7 @@ void Studentas::pild()
 
         cout << "Iveskite egzamino pazymi: ";
 
-        tikrinimas(egzaminas_);
+        tikrinimas(egz_);
         char a;
 
         cout << "Jei norite, kad galutinis pazymys butu pateiktas su VIDURKIU iveskite \"V\".\n Jei su MEDIANA iveskite \"M\".  ";
@@ -166,12 +166,11 @@ void Studentas::nuskaitymas_vec_(string read)
             tempas.nd_.push_back(k);
         }
 
-
-        tempas.egzaminas_ = tempas.nd_.back();
+        tempas.egz_ = tempas.nd_.back();
         tempas.nd_.pop_back();
         sum = std::accumulate(tempas.nd_.begin(), tempas.nd_.end(), 0);
         vid = sum / tempas.nd_.size();
-        tempas.galutinisVid_ = 0.4 * vid + 0.6 * tempas.egzaminas_;
+        tempas.gal_vid_ = 0.4 * vid + 0.6 * tempas.egz_;
         grupe_vec_.push_back(tempas);
 
     }
@@ -191,7 +190,7 @@ void Studentas::padalijimas3_(vector<Studentas>& vec)
 
 bool Studentas::pred_(const Studentas& st)
 {
-    return st.galutinisVid_ >= 5;
+    return st.gal_vid_ >= 5;
 }
 
 void  Studentas::isvedimas_(vector<Studentas>& vec, string pav)
@@ -201,7 +200,7 @@ void  Studentas::isvedimas_(vector<Studentas>& vec, string pav)
     failas << std::setw(20) << std::left << "Vardas" << std::setw(20) << std::left << "Pavarde" << std::setw(20) << std::left << "Galutinis balas" << "\n";
     for (auto p : vec) {
 
-        failas << std::setw(20) << std::left << p.vardas_ << std::setw(20) << std::left << p.pavarde_ << std::setw(20) << std::left << p.galutinisVid_ << "\n";
+        failas << std::setw(20) << std::left << p.vardas_ << std::setw(20) << std::left << p.pavarde_ << std::setw(20) << std::left << p.gal_vid_ << "\n";
     }
     failas.close();
 }
@@ -213,6 +212,6 @@ bool operator==(const Studentas& a, const Studentas& b)
 
 std::ostream& operator<<(std::ostream& out, const Studentas& a)
 {
-    out << std::setw(20) << std::left << a.vardas_ << std::setw(20) << std::left << a.pavarde_ << std::setw(20) << std::left << std::setprecision(3) << a.galutinisVid_ << endl;
+    out << std::setw(20) << std::left << a.vardas_ << std::setw(20) << std::left << a.pavarde_ << std::setw(20) << std::left << std::setprecision(3) << a.gal_vid_ << endl;
     return out;
 }
