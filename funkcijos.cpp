@@ -27,7 +27,7 @@ using std::ifstream;
 using std::stringstream;
 using std::exception;
 
-//STRUKTURAI:
+//STRUKTURA:
 vector<studentas> grupe_vec;
 vector<studentas> vargsiukai_v;
 vector<studentas> kietiakai_v;
@@ -36,9 +36,9 @@ list<studentas> grupe_lst;
 list<studentas> vargsiukai_l;
 list<studentas> kietiakai_l;
 
-//KLASEI:
+//KLASE:
 vector<Studentas> grupe_vec_;
-vector <Studentas> nabagai_vec_;
+vector <Studentas> vargsiukai_v_;
 
 
 void pild(studentas& kint) {
@@ -133,6 +133,7 @@ void pild(studentas& kint) {
         kint.gal_med = med * 0.4 + 0.6 * kint.egz;
     }
 }
+
 void printas(studentas& kin) {
 
 
@@ -142,7 +143,9 @@ void printas(studentas& kin) {
     else
         cout << setw(20) << left << kin.vardas << setw(20) << left << kin.pavarde << setw(20) << left << setprecision(3) << kin.gal_med << endl;
 }
-float mediana(vector<float> vec) {
+
+float mediana(vector<float> vec) 
+{
     typedef vector<float>::size_type vecSize;
     vecSize size = vec.size();
     if (size == 0)
@@ -162,7 +165,8 @@ void print_student(studentas& stud)
     cout << setw(20) << left << stud.vardas << setw(20) << left << stud.pavarde << setw(20) << left << setprecision(3) << stud.gal_vid << setw(20) << left << setprecision(3) << stud.gal_med << endl;
 }
 
-void tikrinimas(int& a) {
+void tikrinimas(int& a) 
+{
     cin >> a;
     do {
         try {
@@ -178,6 +182,7 @@ void tikrinimas(int& a) {
 
     } while (cin.fail() == true);
 }
+
 bool func(studentas st) 
 {
     return st.gal_vid < 5;
@@ -192,7 +197,7 @@ bool pred(studentas st)
 
 void create_file(string name, float sk) 
 {
-    std::random_device rd;//******************  RANDOM****************
+    std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_int_distribution<int> dist(1, 10);
 
@@ -428,6 +433,8 @@ void isvedimas(list<studentas>& lst, string pav)
     failas.close();
 }
 
+
+
 void testas(string name) 
 {
     cout << endl;
@@ -450,7 +457,7 @@ void testas(string name)
     cout << endl << "NAUDOJANT KLASE:" << endl << endl;
     t0.reset();
     t.reset();
-    Studentas::nuskaitymas_vec_(name);
+    Studentas::nuskaitymas_v_(name);
     float t1_ = t.elapsed();
     cout << "Nuskaitymas uztruko: " << t1_ << " s" << endl;
     t.reset();
@@ -460,6 +467,7 @@ void testas(string name)
     grupe_vec_.clear();
     vargsiukai_v.clear();
     float tv_ = t0.elapsed();
+
     cout << "Visas testo laikas: " << tv_ << " s" << endl;
     cout << endl << "Nuskaitymo santykis (t_struct/t_class): " << t1 / t1_ << endl;
     cout << "Padalijimo santykis (t_struct/t_class): " << t2 / t2_ << endl;
@@ -476,18 +484,19 @@ void uzpildymas()
     {
         cout << "Irasykite failo pavadinima: ";
         cin >> fileName;
-        try {
-            Studentas::nuskaitymas_vec_(fileName);
+        try 
+        {
+            Studentas::nuskaitymas_v_(fileName);
         }
-
-
         catch (std::exception& e) {
             cout << "Failas neegzistuoja! Patikrinkite failo varda ir meginkite is naujo..." << endl;
             exit(EXIT_FAILURE);
         }
+
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
-        for (auto p : grupe_vec_) {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+        for (auto p : grupe_vec_) 
+        {
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
 
     }
