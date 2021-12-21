@@ -181,14 +181,17 @@ void tikrinimas(int& a) {
 
     } while (cin.fail() == true);
 }
+
 bool func(studentas st)
 {
     return st.gal_vid < 5;
 }
+
 bool pred(studentas st)
 {
     return st.gal_vid >= 5;
 }
+
 void create_file(string name, float sk) {
     std::random_device rd;
     std::mt19937 mt(rd());
@@ -502,7 +505,7 @@ void uzpildymas()
         }
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
         for (auto p : grupe_vec_) {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
 
     }
@@ -518,7 +521,7 @@ void uzpildymas()
         }
         cout << setw(20) << left << "Vardas" << setw(20) << left << "Pavarde" << setw(20) << left << "Galutinis(Vid.)/Galutinis(Med.)" << endl;
         for (auto p : grupe_vec_) {
-            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.galutinisVid() << endl;
+            cout << setw(20) << left << p.vardas() << setw(20) << left << p.pavarde() << setw(20) << left << p.gal_vid() << endl;
         }
     }
 
