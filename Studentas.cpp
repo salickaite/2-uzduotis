@@ -133,7 +133,7 @@ void Studentas::pild()
     }
 }
 
-void Studentas::nuskaitymas_vec_(string read)
+void Studentas::nuskaitymas_v_(string read)
 {
     string eil;
     vector<string> eilutes;
