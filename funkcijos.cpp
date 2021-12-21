@@ -60,7 +60,7 @@ void pild(studentas& kint) {
     }
     if (ats == 'a' || ats == 'A') 
     {
-        std::random_device rd;/////////*******************************************************RANDOM
+        std::random_device rd;
         std::mt19937 mt(rd());
         std::uniform_int_distribution<int> dist(1, 10);
         cout << "Iveskite pazymiu skaiciu: ";
