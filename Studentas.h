@@ -30,13 +30,13 @@ public:
 
 	inline string vardas() const { return vardas_; }
 	inline string pavarde() const { return pavarde_; }
-	inline int egzaminas() const { return egz_; }
+	inline int egz() const { return egz_; }
 	inline vector<float> nd() const { return nd_; }
 	inline float gal_vid() const { return gal_vid_; }
 
 	void setVardas(string);
 	void setPavarde(string);
-	void setEgzaminas(int);
+	void setEgz(int);
 	void setND(vector<float>);
 	void setGal_vid(float);
 
