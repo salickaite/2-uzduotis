@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,13 +10,17 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/// Klase 'Zmogus'
+/// 
+/// klase, kuri yra abstrakti bazine
 class Zmogus
 {
 protected:
 	string vardas_;
 	string pavarde_;
 public:
-	Zmogus() {
+	Zmogus()
+	{
 		vardas_ = "";
 		pavarde_ = "";
 	}
@@ -27,61 +30,74 @@ public:
 	~Zmogus() {};
 };
 
-
-
-class Studentas : public Zmogus {
+/// Klase 'Studentas'
+/// 
+/// isvestine klase is 'Zmogus'
+class Studentas : public Zmogus
+{
 private:
-	int egzaminas_;
-	float galutinisVid_;
+	int egz_;
+	float gal_vid_;
 	vector<float> nd_;
 
 public:
+	///Default constructor
 	Studentas()
 	{
-		egzaminas_ = 0;
-		galutinisVid_ = 0;
+		egz_ = 0;
+		gal_vid_ = 0;
 		nd_.clear();
 	}
 
 	Studentas(string, string, float);
-	/// Copy konstruktorius.
-
+	/// Copy constructor
 	Studentas(const Studentas& st);
-	/// Priskyrimo operatorius.
-
+	/// Copy asignment operator
 	Studentas& operator=(const Studentas& st);
+
 	inline string vardas() { return vardas_; }
 	inline string pavarde() { return pavarde_; }
-	inline int egzaminas() const { return egzaminas_; }
+	inline int egz() const { return egz_; }
 	inline vector<float> nd() const { return nd_; }
-	inline float galutinisVid() const { return galutinisVid_; }
+	inline float gal_vid() const { return gal_vid_; }
 
 	void setVardas(string);
 	void setPavarde(string);
-	void setEgzaminas(int);
+	void setEgz(int);
 	void setND(vector<float>);
-	void setGalutinisVid(float);
-	/// Destruktorius.
-	~Studentas() {
+	void setGal_vid(float);
+	/// Destructor
+	~Studentas()
+	{
 		nd_.clear();
 	}
 
-	/// Užpildymo funkcija.
+	/// Uzpildymo funkcija
 	void pild();
 
+	/// Vidurkio funkcija
 	float vidurkis();
 
+	/// Galutinio balo (ivertinimo) funkcija
 	float galBalas(const char);
 
-	static void nuskaitymas_vec_(string read);
+	/// Nuskaitymo funkcija
+	static void nuskaitymas_v_(string read);
 
+	/// Studentu padalijimo (rusiavimo) funkcija
 	static void padalijimas3_(vector<Studentas>& vec);
 
 	static bool pred_(const Studentas& st);
 
+	/// Isvedimo i faila funkcija
 	static void isvedimas_(vector<Studentas>& vec, string pav);
 
+	/// Isvedimo funkcija
+	///
+	/// perdengtas operatorius. Isveda varda, pavarde, galutini ivertinima
 	friend std::ostream& operator<<(std::ostream& out, const Studentas& a);
-	/// Sulyginimo operatorius.
+	/// Sulyginimo operatorius
+	///
+	/// Perdengtas operatorius
 	friend bool operator==(const Studentas& a, const Studentas& b);
 };
