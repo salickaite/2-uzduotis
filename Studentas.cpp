@@ -29,7 +29,7 @@ Studentas::Studentas(string v, string p, int e, float g)
 
 void Studentas::setVardas(string a) { vardas_ = a; }
 void Studentas::setPavarde(string b) { pavarde_ = b; }
-void Studentas::setEgzaminas(int n) { egz_ = n; }
+void Studentas::setEgz(int n) { egz_ = n; }
 void Studentas::setND(vector<float> nd) { nd_ = nd; }
 void Studentas::setGal_vid(float g) { gal_vid_ = g; }
 
