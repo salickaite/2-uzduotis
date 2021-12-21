@@ -460,7 +460,7 @@ void testas(string name)
     t.reset();
     try
     {
-        Studentas::nuskaitymas_vec_(name);
+        Studentas::nuskaitymas_v_(name);
     }
 
 
@@ -495,7 +495,7 @@ void uzpildymas()
         cout << "Irasykite failo pavadinima: ";
         cin >> fileName;
         try {
-            Studentas::nuskaitymas_vec_(fileName);
+            Studentas::nuskaitymas_v_(fileName);
         }
 
 
