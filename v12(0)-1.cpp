@@ -7,9 +7,6 @@
 using std::cout;
 using std::cin;
 using std::endl;
-//using std::setw;
-//using std::left;
-
 
 int main()
 {
