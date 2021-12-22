@@ -60,7 +60,7 @@ void pild(studentas& kint) {
     }
     if (ats == 'a' || ats == 'A')
     {
-        std::random_device rd;/////////*******************************************************RANDOM
+        std::random_device rd;
         std::mt19937 mt(rd());
         std::uniform_int_distribution<int> dist(1, 10);
         cout << "Iveskite pazymiu skaiciu: ";
@@ -469,9 +469,9 @@ void testas()
     float tv_ = t0.elapsed();
 
     cout << "Visas testo laikas: " << tv_ << " s" << endl;
-    cout << endl << "Nuskaitymo santykis (t_struct/t_class): " << t1 / t1_ << endl;
-    cout << "Padalijimo santykis (t_struct/t_class): " << t2 / t2_ << endl;
-    cout << "Viso testo laiko santykis (t_struct/t_class): " << tv / tv_ << endl;
+    cout << endl << "Nuskaitymo santykis (struct/class): " << t1 / t1_ << endl;
+    cout << "Padalijimo santykis (struct/class): " << t2 / t2_ << endl;
+    cout << "Viso testo laiko santykis (struct/class): " << tv / tv_ << endl;
 }
 
 void uzpildymas()
