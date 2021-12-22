@@ -35,5 +35,6 @@ int main()
     {
         uzpildymas();
     }
+    system("pause");
 
 }
