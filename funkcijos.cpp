@@ -480,9 +480,9 @@ void testas(string name)
     vargsiukai_v.clear();
     float tv_ = t0.elapsed();
     cout << "Visas testo laikas: " << tv_ << endl;
-    cout << endl << "Nuskaitymo santykis (t_struct/t_class): " << t1 / t1_ << endl;
-    cout << "Padalijimo santykis (t_struct/t_class): " << t2 / t2_ << endl;
-    cout << "Viso testo laiko santykis (t_struct/t_class): " << tv / tv_ << endl;
+    cout << endl << "Nuskaitymo santykis (struct/class): " << t1 / t1_ << endl;
+    cout << "Padalijimo santykis (struct/class): " << t2 / t2_ << endl;
+    cout << "Viso testo laiko santykis (struct/class): " << tv / tv_ << endl;
 }
 
 void uzpildymas()
