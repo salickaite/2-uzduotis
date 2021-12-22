@@ -20,9 +20,9 @@ NAUDOJANT KLASE:
 
 LAIKŲ SANTYKIAI:
 
-- Nuskaitymo santykis (t_struct/t_class): 0.963175
-- Padalijimo santykis (t_struct/t_class): 1.16477
-- Viso testo laiko santykis (t_struct/t_class): 0.966602
+- Nuskaitymo santykis (struct/class): 0.963175
+- Padalijimo santykis (struct/class): 1.16477
+- Viso testo laiko santykis (struct/class): 0.966602
 
 ### O2 rezultatai su 100 000 studentų
 
@@ -40,9 +40,9 @@ NAUDOJANT KLASE:
 
 LAIKŲ SANTYKIAI:
 
-- Nuskaitymo santykis (t_struct/t_class): 1.07325
-- Padalijimo santykis (t_struct/t_class): 1.5785
-- Viso testo laiko santykis (t_struct/t_class): 1.08037
+- Nuskaitymo santykis (struct/class): 1.07325
+- Padalijimo santykis (struct/class): 1.5785
+- Viso testo laiko santykis (struct/class): 1.08037
 
 ### Ox rezultatai su 100 000 studentų
 
@@ -60,9 +60,9 @@ NAUDOJANT KLASE:
 
 LAIKŲ SANTYKIAI:
 
-- Nuskaitymo santykis (t_struct/t_class): 1.12656
-- Padalijimo santykis (t_struct/t_class): 1.33784
-- Viso testo laiko santykis (t_struct/t_class): 1.12925
+- Nuskaitymo santykis (struct/class): 1.12656
+- Padalijimo santykis (struct/class): 1.33784
+- Viso testo laiko santykis (struct/class): 1.12925
 
 ### IŠVADOS 
 Atliekant padalijimą greičiausiai veikia O2.
